@@ -27,16 +27,20 @@ namespace CommandPattern.Classes
         // This method must set the On and Off command to the slot provided
         public void SetCommand(int slot, Command onCommand, Command offCommand)
         {
+            onCommands[slot] = onCommand;
+            offCommands[slot] = offCommand;
         }
 
         // This method must call the OnCommand.Execute() method of the slot provided
         public void OnButtonWasPushed(int slot)
         {
+            onCommands[slot].Execute();
         }
 
         // This method must call the OffCommand.Execute() method of the slot provided
         public void OffButtonWasPushed(int slot)
         {
+            offCommands[slot].Execute();
         }
         // Overwritten ToString() to print out each slot and its corresponding command.
         public override string ToString()
